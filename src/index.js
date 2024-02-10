@@ -52,25 +52,6 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  return days[date.getDay()];
-}
-function searchCity(city) {
-  let apiKey = "c10ca71f4cd918886fo5fbb38eta938d";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  axios.get(apiUrl).then(refreshWeather);
-}
-
-function handleSearchSubmit(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-form-input");
-
-  searchCity(searchInput.value);
-}
-
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
